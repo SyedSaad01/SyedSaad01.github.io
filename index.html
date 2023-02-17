@@ -26,21 +26,7 @@
       document.body.style.opacity = 0;
     });
   </script>
-    <script>
-        $(document).ready(function () {
-            const currentUrl = new URL(window.location.href);
-            console.log(currentUrl);
-            const idToken = currentUrl.hash.substring('#id_token='.length);
-            if (idToken) {
-                const redirectUrl = new URL('https://o93v5napp6.execute-api.us-east-2.amazonaws.com/demonew/petnew');
-                redirectUrl.searchParams.set('jwt', idToken);
-                window.location.replace(redirectUrl.href);
-            } else {
-                // Handle the case when id_token is not present in the URL
-            }
-        })
-        
-    </script>
+    
 </body>
 
 </html>

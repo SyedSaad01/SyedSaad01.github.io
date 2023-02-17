@@ -1,1 +1,29 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World </title>
+</head>
+
+<body>
+    "Hello World"
+    <script>
+        $(document).ready(function () {
+            const currentUrl = new URL(window.location.href);
+            console.log(currentUrl);
+            const idToken = currentUrl.hash.substring('#id_token='.length);
+            if (idToken) {
+                const redirectUrl = new URL('https://o93v5napp6.execute-api.us-east-2.amazonaws.com/demonew/petnew');
+                redirectUrl.searchParams.set('jwt', idToken);
+                window.location.replace(redirectUrl.href);
+            } else {
+                // Handle the case when id_token is not present in the URL
+            }
+        })
+    </script>
+</body>
+
+</html>
